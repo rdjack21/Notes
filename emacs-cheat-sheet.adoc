@@ -1,0 +1,66 @@
+:toc: left
+:experimental:
+
+= Emacs Cheat Sheet
+
+== Links
+
+== Leaving Emacs
+
+[cols="2,1"]
+|===
+|Suspend Emacs (or iconify it under X)
+|kbd:[C+z]
+
+|Exit Emacs permanently
+|kbd:[C+x] kbd:[C+c]
+|===
+
+== Files
+
+[cols="2,1"]
+|===
+|Read a file into Emacs
+|kbd:[C+x] kbd:[C+f]
+
+|Save a file
+|kbd:[C+x] kbd:[C+s]
+
+|Save all Files
+|kbd:[C+x] kbd:[s]
+
+|Insert contents of another file into this buffer
+|kbd:[C+x] kbd:[i]
+
+|replace this file with the file you really want
+|kbd:[C+x] kbd:[C+v]
+
+|write buffer to specified file
+|kbd:[C+x] kbd:[C+w]
+
+|toggle read-only status of buffer
+|kbd:[C+x] kbd:[C+q]
+|===
+
+== Multiple Windows
+
+[cols="2,1"]
+|===
+|Delete all other windows
+|kbd:[C+x] kbd:[1]
+
+|Split window, above and below
+|kbd:[C+x] kbd:[2]
+
+|Delete this window
+|kbd:[C+x] kbd:[0]
+
+|Split window, side by side
+|kbd:[C+x] kbd:[3]
+
+|Scroll other window
+|kbd:[C+M+v]
+
+|Switch cursor to another window
+|kbd:[C+x] kbd:[o]
+|===
