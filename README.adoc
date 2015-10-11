@@ -1,0 +1,7 @@
+= Notes
+
+image::https://i.creativecommons.org/l/by/4.0/88x31.png[Creative Commons Attribution 4.0 International License]
+
+This repo is just here to hold verious notes, cheat sheets and such. Every thing
+here will be formated in the AsciiDoc format.
+
