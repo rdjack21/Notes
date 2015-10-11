@@ -2,18 +2,50 @@
 :experimental:
 
 = Emacs Cheat Sheet
+:author: Richard Jackson
+:email: rdjack21 at gmail dot com
+:revnumber: 0.1
+
+== Legend 
+
+[cols="1,1"]
+|===
+|Control key
+|kbd:[Ctrl]
+
+|Meta or Alt key on most keyboards
+|kbd:[Meta]
+
+|Super or the windows key on most keyboards
+|kbd:[Super]
+
+|Press two or more keys at the same time
+|kbd:[key1+key2]
+
+|Press one key then press the other key
+|kbd:[key1] - kbd:[key2]
+|===
+
+All keys are the default keys supplied by either Emacs or the package. 
 
 == Links
+General Emacs web sites that come in handy.
+
+http://www.emacswiki.org/emacs?interface=en[EmacsWiki.org]::
+The EmacsWiki is dedicated to documenting and discussing Emacs, XEmacs and EmacsLisp.
+
+https://www.gnu.org/software/emacs/[GNU Emacs]::
+Official Emacs Website. 
 
 == Leaving Emacs
 
 [cols="2,1"]
 |===
 |Suspend Emacs (or iconify it under X)
-|kbd:[C+z]
+|kbd:[Ctrl+z]
 
 |Exit Emacs permanently
-|kbd:[C+x] kbd:[C+c]
+|kbd:[Ctrl+x] kbd:[Ctrl+c]
 |===
 
 == Files
@@ -21,25 +53,241 @@
 [cols="2,1"]
 |===
 |Read a file into Emacs
-|kbd:[C+x] kbd:[C+f]
+|kbd:[Ctrl+x] - kbd:[Ctrl+f]
 
 |Save a file
-|kbd:[C+x] kbd:[C+s]
+|kbd:[Ctrl+x] - kbd:[Ctrl+s]
 
 |Save all Files
-|kbd:[C+x] kbd:[s]
+|kbd:[Ctrl+x] - kbd:[s]
 
 |Insert contents of another file into this buffer
-|kbd:[C+x] kbd:[i]
+|kbd:[Ctrl+x] - kbd:[i]
 
 |replace this file with the file you really want
-|kbd:[C+x] kbd:[C+v]
+|kbd:[Ctrl+x] - kbd:[Ctrl+v]
 
 |write buffer to specified file
-|kbd:[C+x] kbd:[C+w]
+|kbd:[Ctrl+x] - kbd:[Ctrl+w]
 
 |toggle read-only status of buffer
-|kbd:[C+x] kbd:[C+q]
+|kbd:[Ctrl+x] - kbd:[Ctrl+q]
+|===
+
+== Movement keys
+
+[cols="1,1,1", options="header"]
+|===
+|Item to move over
+|Backward
+|Forward
+
+|character
+|kbd:[Ctrl+b]
+|kbd:[Ctrl+f]
+
+|word
+|kbd:[Meta+b]
+|kbd:[Meta+f]
+
+|line
+|kbd:[Ctrl+p]
+|kbd:[Ctrl+n]
+
+|go to line beginning or end
+|kbd:[Ctrl+a]
+|kbd:[Ctrl+e]
+
+|sentence
+|kbd:[Meta+a]
+|kbd:[Meta+e]
+
+|paragraph
+|kbd:[Meta+{]
+|kbd:[Meta+}]
+
+|page
+|kbd:[Ctrl+x] - kbd:[[]
+|kbd:[Ctrl+x] - kbd:[\]]
+
+|sexp
+|kbd:[Ctrl+Meta+b]
+|kbd:[Ctrl+Meta+f]
+
+|function
+|kbd:[Ctrl+Meta+a]
+|kbd:[Ctrl+Meta+e]
+
+|go to buffer beginning or end
+|kbd:[Meta+<]
+|kbd:[Meta+>]
+
+|Scroll to next screen
+|kbd:[Ctrl+v]
+|
+
+|scroll to previous screen
+|kbd:[Meta+v]
+|
+
+|scroll left
+|kbd:[Ctrl+x] - kbd:[<]
+|
+
+|scroll right
+|kbd:[Ctrl+x] - kbd:[>]
+|
+
+|scroll current line to center, top, bottom
+|kbd:[Ctrl+l]
+|
+
+|goto line
+|kbd:[Meta+g] + kbd:[g]
+|
+
+|goto char
+|kbd:[Meta+g] + kbd:[c]
+|
+
+|Back to indentation
+|kbd:[Meta+m]
+|
+|===
+
+== Getting Help
+
+[cols="2,1"]
+|===
+|Scroll help window
+|kbd:[Ctrl+Meta+v]
+
+|apropos: show commands matching a string
+|kbd:[Ctrl+h] - kbd:[a]
+
+|describe key or the function that the key runs.
+|kbd:[Ctrl+h] - kbd:[k]
+
+|describe a function
+|kbd:[Ctrl+h] - kbd:[f]
+
+|get mode-specific information
+|kbd:[Ctrl+h] - kbd:[m]
+
+|List all key binding
+|kbd:[Ctrl+h] + kbd:[b]
+
+|List prefix bindings. Press the prefix first
+|kbd:[Ctrl+h] or kbd:[F1]
+|===
+
+== Error Recovery
+
+[cols="2,1"]
+|===
+|Abort partially typed or executing command
+|kbd:[Ctrl+g]
+
+|Undo an unwanted change
+|kbd:[Ctrl+x] - kbd:[u], kbd:[Ctrl+_] or kbd:[Ctrl-/]
+
+|restore a buffer to its original contents
+|kbd:[Meta+x] - '`revert-buffer`'
+
+|redraw garbage screen
+|kbd:[Ctrl+1]
+|===
+
+== Killing and Deleting
+
+[cols="2,1,1", options="header"]
+|===
+|Item to kill
+|backward
+|forward
+
+|Character Delete, not kill
+|kbd:[DEL]
+|kbd:[Ctrl-d] or kbd:[Backspace]
+
+|word
+|kbd:[Meta+DEL]
+|kbd:[Meta+d] or kbd:[Meta+Backspace]
+
+|line to end of
+|kbd:[Meta+0] - kbd:[Ctrl+k]
+|kbd:[Ctrl-k]
+
+|sentence
+|kbd:[Ctrl-x] - kbd:[DEL]
+|kbd:[Meta-k]
+
+|sexp
+|kbd:[Meta+-] - kbd:[Ctrl+Meta+k]
+|kbd:[Ctrl+Meta+k]
+
+|Kill region
+|kbd:[Ctrl+w]
+|
+
+|copy region to kill ring
+|kbd:[Meta+w]
+|
+
+|Kill through next occurrence of char
+|kbd:[Meta+z] - '`char`'
+|
+
+|Yank back last thing killed
+|kbd:[Ctrl+y]
+|
+
+|Replace last yank with previous kill
+|kbd:[Meta+y]
+|
+|===
+
+== Marking
+
+[cols="2,1"]
+|===
+|set mark here
+|kbd:[Ctrl+@] or kbd:[Ctrl+Space]
+
+|exchange point and mark
+|kbd:[Ctrl+x] - kbd:[Ctrl+x]
+
+|set mark _arg_ words away
+|kbd:[Meta-@]
+
+|mark paragraph
+|kbd:[Meta+h]
+
+|mark page
+|kbd:[Ctrl+x] - kbd:[Ctrl+p]
+
+|mark sexp
+|kbd:[Ctrl+Meta+@]
+
+|mark function
+|kbd:[Ctrl+Meta+h]
+
+|mark entire buffer
+|kbd:[Ctrl+x] - kbd:[h]
+|===
+
+== Buffers
+
+[cols="2,1"]
+|===
+|Select another buffer
+|kbd:[Ctrl+x] - kbd:[b]
+
+|list all buffers
+|kbd:[Ctrl+x] - kbd:[Ctrl+b]
+
+|kill a buffer
+|kbd:[Ctrl+x] - kbd:[k]
 |===
 
 == Multiple Windows
@@ -47,20 +295,90 @@
 [cols="2,1"]
 |===
 |Delete all other windows
-|kbd:[C+x] kbd:[1]
+|kbd:[Ctrl+x] - kbd:[1]
 
 |Split window, above and below
-|kbd:[C+x] kbd:[2]
+|kbd:[Ctrl+x] - kbd:[2]
 
 |Delete this window
-|kbd:[C+x] kbd:[0]
+|kbd:[Ctrl+x] - kbd:[0]
 
 |Split window, side by side
-|kbd:[C+x] kbd:[3]
+|kbd:[Ctrl+x] - kbd:[3]
 
 |Scroll other window
-|kbd:[C+M+v]
+|kbd:[Ctrl+Meta+v]
 
 |Switch cursor to another window
-|kbd:[C+x] kbd:[o]
+|kbd:[Ctrl+x] - kbd:[o]
 |===
+
+== Incremental Search
+
+[cols="2,1"]
+|===
+|Search forward
+|kbd:[Ctrl+s]
+
+|search backward
+|kbd:[Ctrl+r]
+
+|regular expression search
+|kbd:[Ctrl+Meta+s]
+
+|reverse regular expression search
+|kbd:[Ctrl+Meta+r]
+
+|select previous search string
+|kbd:[Meta+p]
+
+|select next later search string
+|kbd:[Meta+n]
+
+|exit incremental search
+|kbd:[Enter]
+
+|Undo effect of last character
+|kbd:[Delete]
+
+|abort current search
+|kbd:[Ctrl+g]
+|===
+
+Use kbd:[Ctrl+s] or kbd:[Ctrl+r] to repeat the search in either direction.
+
+== In the Minibuffer
+
+[cols="2,1"]
+|===
+|Complete as much as possible
+|kbd:[TAB]
+
+|Complete up to one word
+|kbd:[Space]
+
+|Complete and execute
+|kbd:[Enter]
+
+|Show possible completions
+|kbd:[?]
+
+|Fetch previous minibuffer input
+|kbd:[Meta+p]
+
+|Fetch later minibuffer input or default
+|kbd:[Meta+n]
+
+|Regexp search backward through history
+|kbd:[Meta+r]
+
+|Regexp search forward through history
+|kbd:[Meta+s]
+
+|Edit and repeat the last command that used the minibuffer
+|kbd:[Ctrl+x] - kbd:[Escape] - kbd:[Escape]
+
+|Activate menu bar items on text terminals
+|kbd:[F10]
+|===
+
