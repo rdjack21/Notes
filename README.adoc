@@ -9,3 +9,9 @@ The intent of these documents is that you render them using your preferred style
 then either host them on your server or just load them off your local file system. The
 style sheet github uses are not very good nor do all the asciidoc options work. 
 
+I have posted a rendered version of the AsciiDoc files on my pages site. You can
+see the one and only doc I have so far
+https://rdjack21.github.io/Notes/emacs-cheat-sheet.html[Here]. As start to really
+update this I will on this read me and make it much better but for now this will do.
+
+
