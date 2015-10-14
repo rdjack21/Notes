@@ -1,17 +1,88 @@
 = Notes
+:stylesdir: ./css
+:stylesheet: riak.css
+:linkcss:
+:toc: left
+:experimental:
+:author: Richard Jackson
+:email: rdjack21 at gmail dot com
 
 image::https://i.creativecommons.org/l/by/4.0/88x31.png[Creative Commons Attribution 4.0 International License]
 
-This repo is just here to hold verious notes, cheat sheets and such. Every thing
-here will be formated in AsciiDoc format.
+This repo is just here to hold various notes, cheat sheets and such that I find
+useful. 
 
-The intent of these documents is that you render them using your preferred style sheet
-then either host them on your server or just load them off your local file system. The
-style sheet github uses are not very good nor do all the asciidoc options work. 
+All the documents are AsciiDoc formatted with some embedded Asciidoctor directives.
+I have not tested these docs with the original python AsciiDoc tools I have only tested
+with the Asciidoctor tool set which is the same tool set GitHub is using.
 
-I have posted a rendered version of the AsciiDoc files on my pages site. You can
-see the one and only doc I have so far
-https://rdjack21.github.io/Notes/emacs-cheat-sheet.html[Here]. As start to really
-update this I will on this read me and make it much better but for now this will do.
+The official Asciidoctor web site is located http://asciidoctor.org/[here] where you
+can find instructions on how to use Asciidoctor.
+
+While github does support AsciiDoc the css style sheet they are using looks to be designed
+to make AsciiDoc look like markdown which was supported first. While there is nothing
+wrong with that it does limit what you can do and how good you can make the output
+look on the normal project web site. The best way to view these documents is in the
+projects pages space which I link to below.
+
+== Rendered docs
+These documents have been generated using the '`riak`' style sheet provided by the
+https://github.com/asciidoctor/asciidoctor-stylesheet-factory[asciidoctor-stylesheet-factory] project.
+
+* https://rdjack21.github.io/Notes/README.html[README] - This document just for the
+heck of it. 
+* https://rdjack21.github.io/Notes/emacs-cheat-sheet.html[emacs-cheat-sheet] - This is
+just a standard Emacs cheat sheet covering the default keys.
+* https://rdjack21.github.io/Notes/emacs_notes.html[emacs_notes] - This one contains
+notes about the various packages I have installed into my instance of Emacs. This
+just lets me put notes about my setup in one place without having to bounce all over
+the place to find what I need. 
+
+== How to generate HTML from these docs
+
+1. You will need to have Asciidoctor installed and functioning. You can find
+instructions on how to that http://asciidoctor.org/[**here**].
+2. Clone this repo.
+3. From a command prompt in the directory that you cloned this repo into execute
+this command:
+====
+asciidoctor emacs-cheat-sheet.adoc
+====
+
+== Change the style sheet used to render the document
+If you don't like the default style sheet I have set for rendering the document
+you can change it in 2 different ways.
+
+1. Change the `stylesheet` attribute at the top of the document to the style
+sheet you would prefer to use then generate the html file.
+
+2. You can override the style sheet used on the command line for example like
+this:
+====
+asciidoctor -a stylesheet=golo.css emacs-cheat-sheet.adoc
+====
+
+To make this easier on you I have already included all the themes supported by the
+https://github.com/asciidoctor/asciidoctor-stylesheet-factory[asciidoctor-stylesheet-factory]
+project. The style sheets are in the '`css`' directory and any image resources they
+may need are in the '`images`' directory.
+
+If you wish to use a style sheet that I have not included you will also have to override
+or change the style sheet location option either in the doc or the command line.
+
+== Hey I like your doc and what to use it!
+That is pretty easy to do and you have a few options.
+
+1. If you like the style sheet I'm using you can just clone my pages project which already
+has them rendered. They are in the '`Notes`' directory. Then just copy the files you want to
+your server or just open them in your browser directly from your file system. When copying
+them to a file server make sure and copy the '`css`' and '`images`' directories as well.
+
+2. If you really don't want to copy all the css files to your server you can remove the
+`linkcss` attribute from the top of the '`adoc`' file that you want a copy of then
+regenerate it. This will cause the css to be embedded into the file. But this will not
+cause any image resources to be embedded so you will still need to copy those over.
+
+
 
 
