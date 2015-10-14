@@ -30,18 +30,18 @@ you have to update your '`init.el`' start up files.
 |command
 |Description
 
-|kbd::[Meta+x] el-get-install
+|kbd:[Meta+x] el-get-install
 |Will prompt for a package name, with completion, then install it. It will only
 propose packages that are not already '`installed`'. Any package that you have a
 recipe for is a candidate.
 
-|kbd::[Meta+x] el-get-remove
+|kbd:[Meta+x] el-get-remove
 |Will prompt for an '`installed`' package name, with completion, then remove it.
 Depending on the '`type`' of the package, this often means simply deleting the
 directory where the source package lies. Sometime we have to use external tools
 instead (e.g. '`apt-get`'). No effort is made to unload the features.
 
-|kbd::[Meta+x] el-get-reinstall
+|kbd:[Meta+x] el-get-reinstall
 |This is just a shortcut for '`el-get-remove`' followed by '`el-get-install`' of
 the same package. It is primarily useful when a package has changed types, so the
 normal el-get-update process will not work correctly.
@@ -54,14 +54,14 @@ normal el-get-update process will not work correctly.
 |command
 |Description
 
-|kbd::[Meta+x] el-get-self-update
+|kbd:[Meta+x] el-get-self-update
 |Update only one package, '`el-get`' itself
 
-|kbd::[Meta+x] el-get-update
+|kbd:[Meta+x] el-get-update
 |Will prompt for an installed package name, with completion, then update it. This
 will run the '`build`' commands and '`int`' the package again.
 
-|kbd::[Meta+x] el-get-update-all
+|kbd:[Meta+x] el-get-update-all
 |Will update all packages that have the '`installed`' status in your status file.
 Before the update you will be prompted for confirmation that you wish to proceed.
 
@@ -69,7 +69,7 @@ Beware that using this function can lead to hours of settings review: more often
 than not updating a package requires some adjustments to your setup. Updating all
 of them at once will require reviewing almost all your setup.
 
-|kbd::[Meta+x] el-get-reload
+|kbd:[Meta+x] el-get-reload
 |Reload the given package files. Happens automatically at update time too.
 |===
 
@@ -80,19 +80,19 @@ of them at once will require reviewing almost all your setup.
 |Command
 |Description
 
-|kbd::[Meta+x] el-get-list-packages
+|kbd:[Meta+x] el-get-list-packages
 |Opens a buffer listing all known packages (those for which you have a recipe). The
 listing includes the package name, its status (one of __available__, __installed__,
 __removed__ or __required__) and the package description. The description is a free
 form text and has not been provided for all recipes.
 
-|kbd::[Meta+x] el-get-describe
+|kbd:[Meta+x] el-get-describe
 |Prompt for a package name, with completion, then open an '`*Help*`' window with
 details about the selected package. Those include current status, website,
 description, installation method, full recipe, and buttons to easily install,
 update or remove the package.
 
-|kbd::[Meta+x] el-get-find-recipe-file
+|kbd:[Meta+x] el-get-find-recipe-file
 |Will prompt for the name of a package, with completion, then '`find-file`' its
 '`recipe`' file. If the recipe does not exist, it will create a new recipe file
 with the appropriate name.
