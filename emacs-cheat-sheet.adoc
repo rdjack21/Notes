@@ -1,7 +1,9 @@
+= Emacs Cheat Sheet
+:stylesdir: ./css
+:stylesheet: riak.css
+:linkcss:
 :toc: left
 :experimental:
-
-= Emacs Cheat Sheet
 :author: Richard Jackson
 :email: rdjack21 at gmail dot com
 :revnumber: 0.1

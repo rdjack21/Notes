@@ -1,9 +1,12 @@
-:toc: left
-:experimental:
 = Emacs Notes
 :author: Richard Jackson
 :email: rdjack21 at gmail dot com
 :revnumber: 0.1
+:toc: left
+:experimental:
+:stylesdir: ./css
+:stylesheet: riak.css
+:linkcss:
 
 This document is more aimed at quick notes for the various packages I have
 installed into my emacs. You may find this usfull or you may not. It should
