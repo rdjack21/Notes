@@ -181,6 +181,9 @@ Official Emacs Website.
 
 |List prefix bindings. Press the prefix first
 |kbd:[Ctrl+h] or kbd:[F1]
+
+|List value of a variable and its description
+|kbd:[Ctrl+h] + kbd:[v]
 |===
 
 == Error Recovery
