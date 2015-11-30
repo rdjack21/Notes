@@ -1,4 +1,4 @@
-:toc: left
+:cot: left
 :experimental:
 
 = Emacs Cheat Sheet
@@ -382,3 +382,63 @@ Use kbd:[Ctrl+s] or kbd:[Ctrl+r] to repeat the search in either direction.
 |kbd:[F10]
 |===
 
+== Dired Mode
+
+[cols="2,1"]
+|===
+|Enter Dired Mode
+|kbd:[Ctrl+x]-kbd:[d](dired) or kbd[Ctrl+x] - kbd:[Ctrl+f](find file)
+
+|Mark files for deletion
+|kbd:[d]
+
+|Remove the deletion flag
+|kbd:[u]
+
+|Execute the deletion
+|kbd:[x]
+
+|Flag all auto-save files (files whose names start and end with '`#`') for deletion.
+|kbd:[#]
+
+|Flag all backup files (files whose names end with '`~`') for deletion.
+|kbd:[~]
+
+|Visit(open) the file described on the current line.
+|kbd:[f] or kbd:[Ret] or kbd:[e]
+
+|Like kbd:[f], but uses another window to display the file's buffer. The Dired buffer
+remains visible in the first window. This is like using kbd:[Ctrl+x] kbd:[4] kbd:[Ctrl+f]
+to visit the file.
+|kbd:[o]
+
+|Visit the file described on the current line, and display the buffer in another window,
+but do not select that window.
+|kbd:[Ctrl+o]
+
+|View the file described on the current line, with View mode. View mode provides convenient
+commands to navigate the buffer but forbids changing it.
+|kbd:[v]
+
+|Visit the parent directory of the current directory. This is equivalent to moving to the
+line for .. and typing f there.
+|kbd:[^]
+|===
+
+=== Dired Marks
+Instead of flagging a file with '`D`', you can mark the file with some other character
+(usually '`*`'). Most Dired commands to operate on files use the files marked with '`*`'.
+The only command that operates on flagged files is kbd:[x], which deletes them.
+
+[cols="2,1"]
+|===
+|Mark the current file with '`*`'(`dired-mark`). If the region is active, mark all files in
+the region instead; otherwise, if a numeric argument __n__ is supplied, mark the next __n__
+files instead, starting with the current file(if __n__ is negative, mark the previous __-n__
+files).
+|kbd:[m] or kbd:[* m]
+
+|Mark all executable files with '`*`'(`dired-mark-executables`). With a numeric argument,
+unmark all those files.
+|kbd:[* *]
+|===
