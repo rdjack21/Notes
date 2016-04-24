@@ -1,0 +1,30 @@
+= Git Notes
+:stylesdir: ./css
+:stylesheet: riak.css
+:linkcss:
+:toc: left
+:experimental:
+:author: Richard Jackson
+:email: rdjack21 at gmail dot com
+:revnumber: 0.1
+
+Various notes about how to do things in git. This mostly contains things that
+I don't do that often so don't have memorized and end up having to look for
+it again.
+
+== Changing upstream URL
+
+For full details of this see https://git-scm.com/docs/git-remote[git-remote]
+
+Find what the current remote URL(s) are defined as:
+[source,sh]
+----
+git remote -v
+----
+
+Now using the list you can change any of them. For instance to change a https
+url to ssh do:
+[source,sh]
+----
+git remote set-url origin git@github.com:rdjack21/Notes.git
+----
