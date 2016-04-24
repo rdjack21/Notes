@@ -1,0 +1,17 @@
+= FFMpeg Notes
+:author: Richard Jackson
+:email: rdjack21 at gmail dot com
+:revnumber: 0.1
+:toc: left
+:experimental:
+:stylesdir: ./css
+:stylesheet: riak.css
+:linkcss:
+
+== Extract audio from a video stream
+
+ffmpeg -i video.mp4 -c:a copy -vn audio.m4a
+
+ffmpeg -i audio.m4a -ss [hh:mm:ss] -to [hh:mm:ss] -c:a copy audioout.m4a
+
+ffprobe stream.mp4 

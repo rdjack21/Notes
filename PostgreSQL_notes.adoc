@@ -1,0 +1,119 @@
+= PostgreSQL notes
+:stylesdir: ./css
+:stylesheet: riak.css
+:linkcss:
+:toc: left
+:experimental:
+:author: Richard Jackson
+:email: rdjack21 at gmail dot com
+:revnumber: 0.1
+
+== Data dictionary queries
+
+=== Fast way to find data dictionary queries
+Start psql with the -E flag this will cause psql to emit all generated queries
+for it's backslash commands.
+
+=== [\l] List all databases
+This will list all databases on the server.
+
+[source,sql]
+----
+SELECT d.datname as "Name",
+       pg_catalog.pg_get_userbyid(d.datdba) as "Owner",
+       pg_catalog.pg_encoding_to_char(d.encoding) as "Encoding",
+       d.datcollate as "Collate",
+       d.datctype as "Ctype",
+       pg_catalog.array_to_string(d.datacl, E'\n') AS "Access privileges"
+FROM pg_catalog.pg_database d
+ORDER BY 1;
+----
+
+=== [\dg] List Roles
+This is different than what psql will generate.
+
+[source,sql]
+----
+SELECT r.oid, r.rolname,
+  ARRAY(SELECT b.rolname
+        FROM pg_catalog.pg_auth_members m
+        JOIN pg_catalog.pg_roles b ON (m.roleid = b.oid)
+        WHERE m.member = r.oid) as memberof,
+  r.rolsuper, r.rolinherit,
+  r.rolcreaterole, r.rolcreatedb, r.rolcanlogin,
+  r.rolconnlimit, r.rolvaliduntil,
+  r.rolreplication,
+  r.rolbypassrls
+FROM pg_catalog.pg_roles r
+ORDER BY 1;
+----
+
+
+== Setup new Database
+Some things that should be done when creating a new database.
+
+
+* By default public is granted connect permissions on databases. To revoke this and
+  only allow specific users connect permissions execute this on the database:
+----
+REVOKE ALL ON DATABASE db_name FROM public;
+----
+
+* public also has the permissions to create tables on the public schema lets
+  revoke that as well again on each database.
+----
+REVOKE ALL ON SCHEMA public FROM public;
+----
+
+
+== Miscellaneous stuff
+
+=== View current configuration
+
+[source,sql]
+----
+SELECT * FROM pg_settings;
+----
+
+
+=== Determine table size
+
+[source,sql]
+----
+SELECT pg_relation_size('table_name'), pg_size_pretty(pg_relation_size('table_name'));
+or
+SELECT pg_table_size('table_name'), pg_size_pretty(pg_relation_size('table_name'));
+----
+See
+http://www.postgresql.org/docs/9.5/interactive/functions-admin.html#FUNCTIONS-ADMIN-DBOBJECT[Database
+Object Size and Functions]
+
+=== Detecting missing indexes
+
+[source,sql]
+----
+SELECT relname, seq_scan, seq_tup_read, idx_scan, idx_tup_fetch, seq_tup_read / seq_scan
+FROM pg_stat_user_tables
+WHERE seq_scan > 0
+order by seq_tup_read DESC;
+----
+see http://www.postgresql.org/docs/9.5/static/monitoring-stats.html[The Statistics Collector]
+
+=== Detecting slow queries
+You must have the `pg_stat_statements` module installed for this to work. The module
+is included as part of the PostgreSQL contrib package and you install it with:
+
+[source,sql]
+----
+CREATE EXTENSION pg_stat_statements;
+----
+
+You just also add `shared_preload_libraries = 'pg_stat_statements'` to `postgresql.conf`
+then restart the server before the module will become active.
+
+Then it is just a matter of digging around with data contained in  `pg_stat_statements`.
+
+To reset the statistics just execute the `pg_stat_reset()` function.
+
+For more on this see http://www.postgresql.org/docs/9.5/interactive/monitoring.html[Chapter
+ 27. Monitoring Database Activity] in the PostgreSQL manual.
