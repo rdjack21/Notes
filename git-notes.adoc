@@ -10,11 +10,40 @@
 
 Various notes about how to do things in git. This mostly contains things that
 I don't do that often so don't have memorized and end up having to look for
-it again.
+it again. Links the git manuals:
+
+* https://git-scm.com/docs[git Reference] - command line command referance.
+* https://git-scm.com/book/en/v2[git book] - The pro git book that is kept up
+    to date with the latest git release.
+
+== Git Config
+
+reference page: https://git-scm.com/docs/git-config[git config]
+
+=== set email
+
+[source,sh]
+.Email address for every repository on your computer
+----
+git config --global user.email "your_email@example.com"
+----
+
+[source,sh]
+.Email address for active repo
+----
+git config user.email "your_email@example.com"
+----
+
+[source,sh]
+.github private email address
+----
+git config user.email "username@users.noreply.githup.com"
+----
+
 
 == Changing upstream URL
 
-For full details of this see https://git-scm.com/docs/git-remote[git-remote]
+reference page: https://git-scm.com/docs/git-remote[git remote]
 
 Find what the current remote URL(s) are defined as:
 [source,sh]
